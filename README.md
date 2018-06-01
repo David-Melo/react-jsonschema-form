@@ -103,6 +103,7 @@ A [live playground](https://mozilla-services.github.io/react-jsonschema-form/) i
   - [FAQ](#faq)
      - [Q: Does rjsf support oneOf, anyOf, multiple types in an array, etc.?](#q-does-rjsf-support-oneof-anyof-multiple-types-in-an-array-etc)
      - [Q: Will react-jsonschema-form support Material, Ant-Design, Foundation, or [some other specific widget library or frontend style]?](#q-will-react-jsonschema-form-support-material-ant-design-foundation-or-some-other-specific-widget-library-or-frontend-style)
+     - [Q: Is there a way to &quot;collapse&quot; fields, for instance to show/hide individual fields?](#q-is-there-a-way-to-collapse-fields-for-instance-to-show-hide-individual-fields)
   - [License](#license)
 
 ---

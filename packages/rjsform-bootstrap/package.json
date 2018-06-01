@@ -1,0 +1,21 @@
+{
+  "name": "rjsform-bootstrap",
+  "version": "1.0.0",
+  "description": "React JSON Schema Form with Bootstrap UI",
+  "main": "build/index.js",
+  "libName": "RJSForm",
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start --use ../../.neutrinorc.lib.js",
+    "build": "neutrino build --use ../../.neutrinorc.lib.js"
+  },
+  "devDependencies": {},
+  "dependencies": {
+    "@rjsform/fields": "^1.0.0",
+    "@rjsform/form": "^1.0.0",
+    "@rjsform/ui-bootstrap": "^1.0.0"
+  },
+  "peerDependencies": {
+    "react": "^16.4.0"
+  }
+}

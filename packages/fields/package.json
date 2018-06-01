@@ -1,0 +1,15 @@
+{
+  "name": "@rjsform/fields",
+  "version": "1.0.0",
+  "description": "RJSForm fields (React components)",
+  "main": "build/index.js",
+  "libName": "RJSFFields",
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start --use ../../.neutrinorc.lib.js",
+    "build": "neutrino build --use ../../.neutrinorc.lib.js"
+  },
+  "peerDependencies": {
+    "react": "^16.4.0"
+  }
+}

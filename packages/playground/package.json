@@ -1,0 +1,19 @@
+{
+  "name": "@rjsform/playground",
+  "version": "1.0.0",
+  "description": "React JSON Schema Form - Playground",
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start --use @neutrinojs/react",
+    "build": "neutrino build --use @neutrinojs/react"
+  },
+  "devDependencies": {
+    "@neutrinojs/react": "^8.2.3",
+    "neutrino": "^8.2.3"
+  },
+  "dependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "rjsform-bootstrap": "^1.0.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "@rjsform/ui-bootstrap",
+  "version": "1.0.0",
+  "description": "RJSForm components with Bootstrap UI",
+  "main": "build/index.js",
+  "libName": "RJSFBootstrap",
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start --use ../../.neutrinorc.lib.js",
+    "build": "neutrino build --use ../../.neutrinorc.lib.js"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "react": "^16.4.0"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "@rjsform/utils",
+  "version": "1.0.0",
+  "description": "RJSForm utils",
+  "main": "index.js",
+  "libName": "RJSFUtils",
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start --use ../../.neutrinorc.lib.js",
+    "build": "neutrino build --use ../../.neutrinorc.lib.js"
+  }
+}

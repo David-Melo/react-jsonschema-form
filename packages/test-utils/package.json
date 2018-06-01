@@ -1,0 +1,7 @@
+{
+  "name": "@rjsform/test-utils",
+  "version": "1.0.0",
+  "description": "RJSForm test utils",
+  "main": "index.js",
+  "license": "MIT"
+}
