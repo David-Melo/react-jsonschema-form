@@ -1,0 +1,19 @@
+{
+  "name": "@rjsform/validate",
+  "version": "1.0.0",
+  "description": "JSON Schema validation for React JSON Schema Form",
+  "main": "build/index.js",
+  "libName": "RJSFValidate",
+  "license": "MIT",
+  "module": "lib/index.js",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
+    "build:umd": "neutrino build --use ../../.neutrinorc.lib.js",
+    "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
+    "build": "npm run build:lib && npm run build:umd"
+  },
+  "dependencies": {
+    "ajv": "^6.5.0",
+    "lodash.topath": "^4.5.2"
+  }
+}

@@ -2,11 +2,18 @@
   "name": "@rjsform/utils",
   "version": "1.0.0",
   "description": "RJSForm utils",
-  "main": "index.js",
+  "main": "build/index.js",
   "libName": "RJSFUtils",
   "license": "MIT",
+  "module": "lib/index.js",
   "scripts": {
-    "start": "neutrino start --use ../../.neutrinorc.lib.js",
-    "build": "neutrino build --use ../../.neutrinorc.lib.js"
+    "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
+    "build:umd": "neutrino build --use ../../.neutrinorc.lib.js",
+    "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
+    "build": "npm run build:lib && npm run build:umd"
+  },
+  "dependencies": {
+    "@rjsform/validate": "^1.0.0",
+    "setimmediate": "^1.0.5"
   }
 }

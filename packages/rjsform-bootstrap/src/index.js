@@ -7,12 +7,12 @@ import {
   widgets as defaultWidgets
 } from '@rjsform/ui-bootstrap';
 
-export default ({ fields = {}, templates = {}, widgets = {}, ...props }) => {
+export default props => {
   const components = {
-    fields: { ...defaultFields, ...fields },
-    templates: { ...defaultTemplates, ...templates },
-    widgets: { ...defaultWidgets, ...widgets }
+    fields: { ...defaultFields, ...(props.fields || {}) },
+    templates: { ...defaultTemplates, ...(props.templates || {}) },
+    widgets: { ...defaultWidgets, ...(props.widgets || {}) }
   };
-
+  
   return <Form {...props} {...components} />;
 };
