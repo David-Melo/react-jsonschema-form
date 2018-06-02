@@ -1,11 +1,11 @@
 {
   "private": true,
-  "name": "@rjsform/playground-bootstrap",
+  "name": "playground-bootstrap",
   "version": "1.0.0",
   "description": "React JSON Schema Form - Playground",
   "license": "MIT",
   "scripts": {
-    "start": "neutrino start",
+    "start": "neutrino start --options.config.devServer.open",
     "build": "neutrino build"
   },
   "devDependencies": {
@@ -14,10 +14,10 @@
     "neutrino": "^8.2.3"
   },
   "dependencies": {
-    "@rjsform/samples": "^1.0.0",
+    "@react-schema-form/bootstrap": "^1.0.0",
+    "@react-schema-form/utils-samples": "^1.0.0",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
-    "react-router-dom": "^4.2.2",
-    "rjsform-bootstrap": "^1.0.0"
+    "react-router-dom": "^4.2.2"
   }
 }

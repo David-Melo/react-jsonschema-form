@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
-import Form from 'rjsform-bootstrap';
-import samples from '@rjsform/samples';
+import Form from '@react-schema-form/bootstrap';
+import samples from '@react-schema-form/utils-samples';
 
 import {
   Container,

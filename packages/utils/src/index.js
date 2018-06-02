@@ -1,7 +1,7 @@
 import React from 'react';
 import 'setimmediate';
 
-import validateFormData from '@rjsform/validate';
+import validateFormData from '@react-schema-form/utils-validate';
 
 const widgetMap = {
   boolean: {

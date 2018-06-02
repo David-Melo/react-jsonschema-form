@@ -1,0 +1,27 @@
+{
+  "name": "@react-schema-form/components-bootstrap",
+  "version": "1.0.0",
+  "description": "React Schema Form components with Bootstrap UI",
+  "license": "MIT",
+  "main": "build/index.js",
+  "module": "lib/index.js",
+  "variable": "ReactSchemaFormUi",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
+    "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
+    "build:umd": "neutrino build --use ../../.neutrinorc.lib.js",
+    "build": "npm run build:lib && npm run build:umd",
+    "icons": "svgr -d src/components/icons svg --icon"
+  },
+  "devDependencies": {
+    "react": "^16.4.0",
+    "svgr": "^1.10.0"
+  },
+  "peerDependencies": {
+    "react": "^16.4.0"
+  },
+  "dependencies": {
+    "@react-schema-form/utils": "^1.0.0",
+    "prop-types": "^15.6.1"
+  }
+}

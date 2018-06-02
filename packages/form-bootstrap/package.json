@@ -1,19 +1,26 @@
 {
-  "name": "@react-schema-form/utils",
+  "name": "@react-schema-form/bootstrap",
   "version": "1.0.0",
-  "description": "React Schema Form Utils",
+  "description": "React JSON Schema Form with Bootstrap UI",
   "license": "MIT",
   "main": "build/index.js",
   "module": "lib/index.js",
-  "variable": "ReactSchemaFormUtils",
+  "variable": "ReactSchemaForm",
   "scripts": {
     "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
     "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
     "build:umd": "neutrino build --use ../../.neutrinorc.lib.js",
     "build": "npm run build:lib && npm run build:umd"
   },
+  "peerDependencies": {
+    "react": "^16.4.0"
+  },
   "dependencies": {
-    "@react-schema-form/utils-validate": "^1.0.0",
-    "setimmediate": "^1.0.5"
+    "@react-schema-form/components-bootstrap": "^1.0.0",
+    "@react-schema-form/components-fields": "^1.0.0",
+    "@react-schema-form/components-form": "^1.0.0"
+  },
+  "devDependencies": {
+    "react": "^16.4.0"
   }
 }

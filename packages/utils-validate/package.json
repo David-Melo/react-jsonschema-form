@@ -1,11 +1,11 @@
 {
-  "name": "@react-schema-form/utils",
+  "name": "@react-schema-form/utils-validate",
   "version": "1.0.0",
-  "description": "React Schema Form Utils",
+  "description": "JSON Schema validation for React JSON Schema Form",
   "license": "MIT",
   "main": "build/index.js",
   "module": "lib/index.js",
-  "variable": "ReactSchemaFormUtils",
+  "variable": "ReactSchemaFormUtilsValidate",
   "scripts": {
     "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
     "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
@@ -13,7 +13,7 @@
     "build": "npm run build:lib && npm run build:umd"
   },
   "dependencies": {
-    "@react-schema-form/utils-validate": "^1.0.0",
-    "setimmediate": "^1.0.5"
+    "ajv": "^6.5.0",
+    "lodash.topath": "^4.5.2"
   }
 }

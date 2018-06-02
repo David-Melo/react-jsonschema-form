@@ -1,3 +1,3 @@
-module.exports = {
-  use: [['@neutrinojs/react', { babel: { presets: ['react-app'] } }]]
+module.exports = neutrino => {
+  neutrino.use(['@neutrinojs/react', { babel: { presets: ['react-app'] } }]);
 };

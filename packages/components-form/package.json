@@ -1,19 +1,26 @@
 {
-  "name": "@react-schema-form/utils",
+  "name": "@react-schema-form/components-form",
   "version": "1.0.0",
-  "description": "React Schema Form Utils",
+  "description": "React JSON Schema Form component",
   "license": "MIT",
   "main": "build/index.js",
   "module": "lib/index.js",
-  "variable": "ReactSchemaFormUtils",
+  "variable": "ReactSchemaFormComponent",
   "scripts": {
     "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
     "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
     "build:umd": "neutrino build --use ../../.neutrinorc.lib.js",
     "build": "npm run build:lib && npm run build:umd"
   },
+  "peerDependencies": {
+    "react": "^16.4.0"
+  },
   "dependencies": {
+    "@react-schema-form/utils": "^1.0.0",
     "@react-schema-form/utils-validate": "^1.0.0",
-    "setimmediate": "^1.0.5"
+    "prop-types": "^15.6.1"
+  },
+  "devDependencies": {
+    "react": "^16.4.0"
   }
 }

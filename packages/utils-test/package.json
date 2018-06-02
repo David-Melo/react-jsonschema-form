@@ -1,19 +1,15 @@
 {
-  "name": "@react-schema-form/utils",
+  "name": "@react-schema-form/utils-test",
   "version": "1.0.0",
-  "description": "React Schema Form Utils",
+  "description": "React Schema Form Utils - test",
   "license": "MIT",
   "main": "build/index.js",
   "module": "lib/index.js",
-  "variable": "ReactSchemaFormUtils",
+  "variable": "ReactSchemaFormUtilsTest",
   "scripts": {
     "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
     "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
     "build:umd": "neutrino build --use ../../.neutrinorc.lib.js",
     "build": "npm run build:lib && npm run build:umd"
-  },
-  "dependencies": {
-    "@react-schema-form/utils-validate": "^1.0.0",
-    "setimmediate": "^1.0.5"
   }
 }

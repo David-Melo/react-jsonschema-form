@@ -3,7 +3,7 @@ const nodeExternals = require('webpack-node-externals');
 
 module.exports = neutrino => {
   /**
-   * Components are tested together in @rjsform/playground
+   * Components are tested together in @react-schema-form/playground
    * We don't use multiple entries (https://webpack.js.org/guides/author-libraries/#expose-the-library)
    * We don't need dev server for components
    * So we can use @neutrinojs/library instead of @neutrinojs/react-components
@@ -16,7 +16,7 @@ module.exports = neutrino => {
   neutrino.use([
     '@neutrinojs/library',
     {
-      name: neutrino.options.packageJson.libName,
+      name: neutrino.options.packageJson.variable,
       babel: { presets: ['react-app'] }
     }
   ]);
