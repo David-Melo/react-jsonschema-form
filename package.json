@@ -83,7 +83,7 @@
     "react-addons-test-utils": "^15.3.2",
     "react-codemirror2": "^4.1.0",
     "react-dom": "^15.3.2",
-    "react-jsonschema-form-bootstrap": "^1.0.0",
+    "react-jsonschema-form-bootstrap": "https://github.com/MatejMazur/react-jsonschema-form-bootstrap",
     "react-transform-catch-errors": "^1.0.0",
     "react-transform-hmr": "^1.0.1",
     "redbox-react": "^1.3.3",
