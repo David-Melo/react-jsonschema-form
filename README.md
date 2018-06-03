@@ -1,9 +1,25 @@
+# WIP
+
+## TODOs:
+- add the topic about templates
+  - FieldTemplate
+  - ArrayFieldTemplate
+  - ObjectFieldTemplate
+  - SubmitTemplate
+  - ErrorListTemplate
+  - TitleTemplate
+  - DescriptionTemplate
+- add the topic about themes
+  - `Form.props.theme`
+  - avalaible theme packages
+
+
 react-jsonschema-form
 =====================
 
 [![Build Status](https://travis-ci.org/mozilla-services/react-jsonschema-form.svg)](https://travis-ci.org/mozilla-services/react-jsonschema-form)
 
-A simple [React](http://facebook.github.io/react/) component capable of building HTML forms out of a [JSON schema](http://json-schema.org/) and using [Bootstrap](http://getbootstrap.com/) semantics by default.
+A simple [React](http://facebook.github.io/react/) component capable of building HTML forms out of a [JSON schema](http://json-schema.org/) ~and using [Bootstrap](http://getbootstrap.com/) semantics by default.~
 
 A [live playground](https://mozilla-services.github.io/react-jsonschema-form/) is hosted on gh-pages.
 
@@ -872,7 +888,7 @@ Form component supports the following html attributes:
 
 ## Advanced customization
 
-### Field template
+### Field template __TODO__
 
 To take control over the inner organization of each field (each form row), you can define a *field template* for your form.
 
@@ -924,7 +940,7 @@ The following props are passed to a custom field template component:
 
 > Note: you can only define a single field template for a form. If you need many, it's probably time to look at [custom fields](#custom-field-components) instead.
 
-### Array Field Template
+### Array Field Template __TODO__
 
 Similarly to the `FieldTemplate` you can use an `ArrayFieldTemplate` to customize how your
 arrays are rendered. This allows you to customize your array, and each element in the array.
@@ -979,7 +995,7 @@ The following props are part of each element in `items`:
 - `onReorderClick: (index, newIndex) => (event) => void`: Returns a function that swaps the items at `index` with `newIndex`.
 - `readonly`: A boolean value stating if the array item is read-only.
 
-### Object Field Template
+### Object Field Template __TODO__
 
 Similarly to the `FieldTemplate` you can use an `ObjectFieldTemplate` to customize how your
 objects are rendered.
@@ -1024,7 +1040,7 @@ The following props are part of each element in `properties`:
 - `disabled`: A boolean value stating if the object property is disabled.
 - `readonly`: A boolean value stating if the property is read-only.
 
-### Error List template
+### Error List template __TODO__
 
 To take control over how the form errors are displayed, you can define an *error list template* for your form. This list is the form global error list that appears at the top of your forms.
 

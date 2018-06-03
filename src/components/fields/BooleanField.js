@@ -1,12 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-import {
-  getWidget,
-  getUiOptions,
-  optionsList,
-  getDefaultRegistry,
-} from "../../utils";
+import { getWidget, getUiOptions, optionsList } from '../../utils';
 
 function BooleanField(props) {
   const {
@@ -15,22 +10,23 @@ function BooleanField(props) {
     uiSchema,
     idSchema,
     formData,
-    registry = getDefaultRegistry(),
+    registry,
     required,
     disabled,
     readonly,
     autofocus,
     onChange,
-    rawErrors,
+    rawErrors
   } = props;
   const { title } = schema;
   const { widgets, formContext } = registry;
-  const { widget = "checkbox", ...options } = getUiOptions(uiSchema);
+  const { widget = 'checkbox', ...options } = getUiOptions(uiSchema);
   const Widget = getWidget(schema, widget, widgets);
   const enumOptions = optionsList({
     enum: [true, false],
-    enumNames: schema.enumNames || ["yes", "no"],
+    enumNames: schema.enumNames || ['yes', 'no']
   });
+
   return (
     <Widget
       options={{ ...options, enumOptions }}
@@ -50,7 +46,7 @@ function BooleanField(props) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   BooleanField.propTypes = {
     schema: PropTypes.object.isRequired,
     uiSchema: PropTypes.object,
@@ -66,10 +62,13 @@ if (process.env.NODE_ENV !== "production") {
         PropTypes.oneOfType([PropTypes.func, PropTypes.object])
       ).isRequired,
       fields: PropTypes.objectOf(PropTypes.func).isRequired,
+      templates: PropTypes.objectOf(
+        PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+      ).isRequired,
       definitions: PropTypes.object.isRequired,
-      formContext: PropTypes.object.isRequired,
+      formContext: PropTypes.object.isRequired
     }),
-    rawErrors: PropTypes.arrayOf(PropTypes.string),
+    rawErrors: PropTypes.arrayOf(PropTypes.string)
   };
 }
 
@@ -77,7 +76,7 @@ BooleanField.defaultProps = {
   uiSchema: {},
   disabled: false,
   readonly: false,
-  autofocus: false,
+  autofocus: false
 };
 
 export default BooleanField;

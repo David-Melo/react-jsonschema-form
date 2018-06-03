@@ -4,6 +4,7 @@ import React from "react";
 import sinon from "sinon";
 import { renderIntoDocument } from "react-addons-test-utils";
 import { findDOMNode, render } from "react-dom";
+import theme from "react-jsonschema-form-bootstrap";
 
 import Form from "../src";
 
@@ -14,7 +15,7 @@ export function createComponent(Component, props) {
 }
 
 export function createFormComponent(props) {
-  return createComponent(Form, { ...props, safeRenderCompletion: true });
+  return createComponent(Form, { theme, ...props, safeRenderCompletion: true });
 }
 
 export function createSandbox() {

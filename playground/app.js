@@ -3,9 +3,11 @@ import { render } from "react-dom";
 import { UnControlled as CodeMirror } from "react-codemirror2";
 import "codemirror/mode/javascript/javascript";
 
+import theme from "react-jsonschema-form-bootstrap";
+
 import { shouldRender } from "../src/utils";
 import { samples } from "./samples";
-import Form from "../src";
+import RawForm from "../src";
 
 // Import a few CodeMirror themes; these are used to match alternative
 // bootstrap ones.
@@ -18,6 +20,7 @@ import "codemirror/theme/solarized.css";
 import "codemirror/theme/monokai.css";
 import "codemirror/theme/eclipse.css";
 
+const Form = props => <RawForm theme={theme} {...props} />;
 const log = type => console.log.bind(console, type);
 const fromJson = json => JSON.parse(json);
 const toJson = val => JSON.stringify(val, null, 2);
@@ -39,7 +42,7 @@ const cmOptions = {
 const themes = {
   default: {
     stylesheet:
-      "//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css",
+      "//stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css",
   },
   cerulean: {
     stylesheet:

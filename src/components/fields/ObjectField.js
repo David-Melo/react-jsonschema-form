@@ -1,35 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 
-import {
-  orderProperties,
-  retrieveSchema,
-  getDefaultRegistry,
-} from "../../utils";
-
-function DefaultObjectFieldTemplate(props) {
-  const { TitleField, DescriptionField } = props;
-  return (
-    <fieldset>
-      {(props.uiSchema["ui:title"] || props.title) && (
-        <TitleField
-          id={`${props.idSchema.$id}__title`}
-          title={props.title || props.uiSchema["ui:title"]}
-          required={props.required}
-          formContext={props.formContext}
-        />
-      )}
-      {props.description && (
-        <DescriptionField
-          id={`${props.idSchema.$id}__description`}
-          description={props.description}
-          formContext={props.formContext}
-        />
-      )}
-      {props.properties.map(prop => prop.content)}
-    </fieldset>
-  );
-}
+import { orderProperties, retrieveSchema } from "../../utils";
 
 class ObjectField extends Component {
   static defaultProps = {
@@ -39,7 +11,7 @@ class ObjectField extends Component {
     idSchema: {},
     required: false,
     disabled: false,
-    readonly: false,
+    readonly: false
   };
 
   isRequired(name) {
@@ -57,7 +29,7 @@ class ObjectField extends Component {
         errorSchema &&
           this.props.errorSchema && {
             ...this.props.errorSchema,
-            [name]: errorSchema,
+            [name]: errorSchema
           }
       );
     };
@@ -76,10 +48,14 @@ class ObjectField extends Component {
       idPrefix,
       onBlur,
       onFocus,
-      registry = getDefaultRegistry(),
+      registry
     } = this.props;
-    const { definitions, fields, formContext } = registry;
-    const { SchemaField, TitleField, DescriptionField } = fields;
+    const { definitions, fields, templates, formContext } = registry;
+    const { SchemaField } = fields;
+    const { TitleTemplate, DescriptionTemplate } = templates;
+    const template =
+      uiSchema["ui:ObjectFieldTemplate"] || "ObjectFieldTemplate";
+    const ObjectFieldTemplate = templates[template];
     const schema = retrieveSchema(this.props.schema, definitions, formData);
     const title = schema.title === undefined ? name : schema.title;
     const description = uiSchema["ui:description"] || schema.description;
@@ -100,13 +76,11 @@ class ObjectField extends Component {
       );
     }
 
-    const Template = registry.ObjectFieldTemplate || DefaultObjectFieldTemplate;
-
     const templateProps = {
       title: uiSchema["ui:title"] || title,
       description,
-      TitleField,
-      DescriptionField,
+      TitleTemplate,
+      DescriptionTemplate,
       properties: orderedProperties.map(name => {
         return {
           content: (
@@ -131,7 +105,7 @@ class ObjectField extends Component {
           name,
           readonly,
           disabled,
-          required,
+          required
         };
       }),
       required,
@@ -139,9 +113,9 @@ class ObjectField extends Component {
       uiSchema,
       schema,
       formData,
-      formContext,
+      formContext
     };
-    return <Template {...templateProps} />;
+    return <ObjectFieldTemplate {...templateProps} />;
   }
 }
 
@@ -161,9 +135,12 @@ if (process.env.NODE_ENV !== "production") {
         PropTypes.oneOfType([PropTypes.func, PropTypes.object])
       ).isRequired,
       fields: PropTypes.objectOf(PropTypes.func).isRequired,
+      templates: PropTypes.objectOf(
+        PropTypes.oneOfType([PropTypes.func, PropTypes.object])
+      ).isRequired,
       definitions: PropTypes.object.isRequired,
-      formContext: PropTypes.object.isRequired,
-    }),
+      formContext: PropTypes.object.isRequired
+    })
   };
 }
 

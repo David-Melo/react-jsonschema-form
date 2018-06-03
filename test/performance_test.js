@@ -1,13 +1,14 @@
 import sinon from "sinon";
 import React from "react";
 import { scryRenderedComponentsWithType } from "react-addons-test-utils";
-import { getDefaultRegistry } from "../src/utils";
+import theme from "react-jsonschema-form-bootstrap";
+import fields from "../src/components/fields";
 import SchemaField from "../src/components/fields/SchemaField";
 import {
   createComponent,
   createFormComponent,
   createSandbox,
-  setProps,
+  setProps
 } from "./test_utils";
 
 describe("Rendering performance optimizations", () => {
@@ -51,13 +52,13 @@ describe("Rendering performance optimizations", () => {
         type: "object",
         properties: {
           const: { type: "string" },
-          var: { type: "string" },
-        },
+          var: { type: "string" }
+        }
       };
 
       const { comp } = createFormComponent({
         schema,
-        formData: { const: "0", var: "0" },
+        formData: { const: "0", var: "0" }
       });
 
       const fields = scryRenderedComponentsWithType(comp, SchemaField).reduce(
@@ -77,12 +78,12 @@ describe("Rendering performance optimizations", () => {
     it("should only render changed array items", () => {
       const schema = {
         type: "array",
-        items: { type: "string" },
+        items: { type: "string" }
       };
 
       const { comp } = createFormComponent({
         schema,
-        formData: ["const", "var0"],
+        formData: ["const", "var0"]
       });
 
       const fields = scryRenderedComponentsWithType(comp, SchemaField).reduce(
@@ -104,13 +105,18 @@ describe("Rendering performance optimizations", () => {
     const onChange = () => {};
     const onBlur = () => {};
     const onFocus = () => {};
-    const registry = getDefaultRegistry();
+    const registry = {
+      fields,
+      definitions: {},
+      formContext: {},
+      ...theme
+    };
     const uiSchema = {};
     const schema = {
       type: "object",
       properties: {
-        foo: { type: "string" },
-      },
+        foo: { type: "string" }
+      }
     };
     const idSchema = { $id: "root", foo: { $id: "root_plop" } };
 
@@ -122,7 +128,7 @@ describe("Rendering performance optimizations", () => {
         onChange,
         idSchema,
         onBlur,
-        onFocus,
+        onFocus
       };
 
       const { comp } = createComponent(SchemaField, props);
@@ -140,7 +146,7 @@ describe("Rendering performance optimizations", () => {
         formData: { foo: "blah" },
         onChange,
         idSchema,
-        onBlur,
+        onBlur
       };
 
       const { comp } = createComponent(SchemaField, props);

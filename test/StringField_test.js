@@ -2,8 +2,7 @@ import React from "react";
 import { expect } from "chai";
 import { Simulate } from "react-addons-test-utils";
 
-import { parseDateString, toDateString } from "../src/utils";
-import { utcToLocal } from "../src/components/widgets/DateTimeWidget";
+import { parseDateString, toDateString, utcToLocal } from "../src/utils";
 import { createFormComponent, createSandbox } from "./test_utils";
 
 describe("StringField", () => {
