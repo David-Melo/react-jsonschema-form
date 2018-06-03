@@ -12,6 +12,7 @@
 - add the topic about themes
   - `Form.props.theme`
   - avalaible theme packages
+- add migration guide
 
 
 react-jsonschema-form
