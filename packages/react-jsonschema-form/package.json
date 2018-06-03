@@ -1,0 +1,31 @@
+{
+  "name": "react-jsonschema-form",
+  "version": "2.0.0",
+  "description": "React JSON Schema Form",
+  "license": "MIT",
+  "main": "build/index.js",
+  "module": "lib/index.js",
+  "variable": "Form",
+  "scripts": {
+    "start": "cross-env NODE_ENV=development babel src --out-dir lib --watch",
+    "build:lib": "cross-env NODE_ENV=production babel src --out-dir lib",
+    "build:umd": "neutrino build --use ../../.neutrinorc.js",
+    "build": "npm run build:lib && npm run build:umd"
+  },
+  "peerDependencies": {
+    "react": "^16.4.0"
+  },
+  "dependencies": {
+    "ajv": "^6.5.0",
+    "lodash.topath": "^4.5.2",
+    "prop-types": "^15.6.1",
+    "setimmediate": "^1.0.5",
+    "source-map-support": "^0.5.6"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "cross-env": "^5.1.6",
+    "neutrino": "^8.2.3",
+    "react": "^16.4.0"
+  }
+}

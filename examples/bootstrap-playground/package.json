@@ -1,0 +1,25 @@
+{
+  "private": true,
+  "name": "bootstrap-playground",
+  "version": "1.0.0",
+  "description": "React Schema Form - Bootstrap 4 UI",
+  "license": "MIT",
+  "scripts": {
+    "start": "neutrino start --use ../../.neutrinorc.js",
+    "build": "neutrino build --use ../../.neutrinorc.js",
+    "predeploy": "npm run build",
+    "deploy": "surge build react-schema-form-bootstrap.surge.sh"
+  },
+  "devDependencies": {
+    "neutrino": "^8.2.3"
+  },
+  "dependencies": {
+    "@react-jsonschema-form/bootstrap": "^2.0.0",
+    "react-jsonschema-form": "^2.0.0",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "react-hot-loader": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "surge": "^0.20.1"
+  }
+}
