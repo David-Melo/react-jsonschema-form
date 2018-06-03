@@ -19,13 +19,6 @@
     "test": "cross-env NODE_ENV=test mocha --compilers js:babel-register --require ./test/setup-jsdom.js test/**/*_test.js"
   },
   "prettierOptions": "--jsx-bracket-same-line --trailing-comma es5 --semi --tab-width 2",
-  "lint-staged": {
-    "{playground,src,test}/**/*.js": [
-      "npm run lint",
-      "npm run cs-format",
-      "git add"
-    ]
-  },
   "main": "lib/index.js",
   "files": [
     "dist",
