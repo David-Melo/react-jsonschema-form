@@ -20,7 +20,7 @@
     "build:umd": "neutrino build",
     "build": "npm run build:lib && npm run build:umd",
     "test": "jest --env=jsdom",
-    "tdd": "jest --watch"
+    "tdd": "jest --env=jsdom --watch"
   },
   "main": "build/index.js",
   "module": "lib/index.js",
