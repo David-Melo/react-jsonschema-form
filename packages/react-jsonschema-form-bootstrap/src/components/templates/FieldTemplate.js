@@ -1,7 +1,7 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
-export const REQUIRED_FIELD_SYMBOL = "*";
+export const REQUIRED_FIELD_SYMBOL = '*';
 
 const Label = props => {
   const { label, required, id } = props;
@@ -23,7 +23,7 @@ const Help = props => {
     // See #312: Ensure compatibility with old versions of React.
     return <div />;
   }
-  if (typeof help === "string") {
+  if (typeof help === 'string') {
     return <small className="form-text text-muted">{help}</small>;
   }
   return <div className="form-text">{help}</div>;
@@ -57,14 +57,13 @@ const FieldTemplate = props => {
     description,
     hidden,
     required,
-    displayLabel,
-    formContext
+    displayLabel
   } = props;
   const classNames = [
     props.classNames,
-    errors && errors.length > 0 ? "has-error has-danger" : ""
+    errors && errors.length > 0 ? 'has-error has-danger' : ''
   ]
-    .join(" ")
+    .join(' ')
     .trim();
 
   if (hidden) {
@@ -82,7 +81,7 @@ const FieldTemplate = props => {
   );
 };
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   FieldTemplate.propTypes = {
     id: PropTypes.string,
     classNames: PropTypes.string,

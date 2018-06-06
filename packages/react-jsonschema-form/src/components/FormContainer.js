@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import PropTypes from "prop-types";
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 import {
   getDefaultFormState,
@@ -7,10 +7,10 @@ import {
   shouldRender,
   toIdSchema,
   setState
-} from "../utils";
-import validateFormData, { toErrorList } from "../validate";
+} from '../utils';
+import validateFormData, { toErrorList } from '../validate';
 
-export default class FormContainer extends Component {
+export default class Form extends Component {
   static defaultProps = {
     uiSchema: {},
     noValidate: false,
@@ -24,18 +24,15 @@ export default class FormContainer extends Component {
     this.state = this.getStateFromProps(props);
   }
 
-  // TODO: check if it's ok for replacing componentWillReceiveProps
-  componentDidUpdate(prevProps) {
-    if (this.props !== prevProps) {
-      this.setState(this.getStateFromProps(this.props));
-    }
+  componentWillReceiveProps(nextProps) {
+    this.setState(this.getStateFromProps(nextProps));
   }
 
   getStateFromProps(props) {
     const state = this.state || {};
-    const schema = "schema" in props ? props.schema : this.props.schema;
-    const uiSchema = "uiSchema" in props ? props.uiSchema : this.props.uiSchema;
-    const edit = typeof props.formData !== "undefined";
+    const schema = 'schema' in props ? props.schema : this.props.schema;
+    const uiSchema = 'uiSchema' in props ? props.uiSchema : this.props.uiSchema;
+    const edit = typeof props.formData !== 'undefined';
     const liveValidate = props.liveValidate || this.props.liveValidate;
     const mustValidate = edit && !props.noValidate && liveValidate;
     const { definitions } = schema;
@@ -45,12 +42,12 @@ export default class FormContainer extends Component {
     const { errors, errorSchema } = mustValidate
       ? this.validate(formData, schema)
       : {
-          errors: state.errors || [],
-          errorSchema: state.errorSchema || {}
-        };
+        errors: state.errors || [],
+        errorSchema: state.errorSchema || {}
+      };
     const idSchema = toIdSchema(
       retrievedSchema,
-      uiSchema["ui:rootFieldId"],
+      uiSchema['ui:rootFieldId'],
       definitions,
       formData,
       props.idPrefix
@@ -143,7 +140,7 @@ export default class FormContainer extends Component {
             this.props.onError(errors);
           } else {
             /*eslint-disable-next-line*/
-            console.error("Form validation failed", errors);
+            console.error('Form validation failed', errors);
           }
         });
         return;
@@ -152,7 +149,7 @@ export default class FormContainer extends Component {
 
     setState(this, { errors: [], errorSchema: {} }, () => {
       if (this.props.onSubmit) {
-        this.props.onSubmit({ ...this.state, status: "submitted" });
+        this.props.onSubmit({ ...this.state, status: 'submitted' });
       }
     });
   };
@@ -193,7 +190,7 @@ export default class FormContainer extends Component {
 
     return (
       <form
-        className={className ? className : "rjsf"}
+        className={className ? className : 'rjsf'}
         id={id}
         name={name}
         method={method}
@@ -225,18 +222,18 @@ export default class FormContainer extends Component {
   }
 }
 
-if (process.env.NODE_ENV !== "production") {
-  FormContainer.propTypes = {
+if (process.env.NODE_ENV !== 'production') {
+  Form.propTypes = {
     schema: PropTypes.object.isRequired,
     uiSchema: PropTypes.object,
     formData: PropTypes.any,
-    fields: PropTypes.objectOf(PropTypes.func).isRequired,
     templates: PropTypes.objectOf(
       PropTypes.oneOfType([PropTypes.func, PropTypes.object])
     ).isRequired,
     widgets: PropTypes.objectOf(
       PropTypes.oneOfType([PropTypes.func, PropTypes.object])
-    ).isRequired,
+    ),
+    fields: PropTypes.objectOf(PropTypes.func),
     onChange: PropTypes.func,
     onError: PropTypes.func,
     showErrorList: PropTypes.bool,

@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Switch, Route, Redirect } from "react-router-dom";
 
 import Form from "react-jsonschema-form";
-import theme from "@react-jsonschema-form/bootstrap";
+import theme from "react-jsonschema-form-bootstrap";
 
 import samples from "react-jsonschema-form/lib/samples";
 

@@ -1,47 +1,20 @@
-import toPath from 'lodash.topath';
-import Ajv from 'ajv';
-
-/**
- * TODO: it's a temporary solution so it doesn't use circular dependencies
- */
-export function isObject(thing) {
-  return typeof thing === 'object' && thing !== null && !Array.isArray(thing);
-}
-
-/**
- * TODO: it's a temporary solution so it doesn't use circular dependencies
- */
-export function mergeObjects(obj1, obj2, concatArrays = false) {
-  // Recursively merge deeply nested objects.
-  var acc = Object.assign({}, obj1); // Prevent mutation of source object.
-  return Object.keys(obj2).reduce((acc, key) => {
-    const left = obj1[key],
-      right = obj2[key];
-    if (obj1.hasOwnProperty(key) && isObject(right)) {
-      acc[key] = mergeObjects(left, right, concatArrays);
-    } else if (concatArrays && Array.isArray(left) && Array.isArray(right)) {
-      acc[key] = left.concat(right);
-    } else {
-      acc[key] = right;
-    }
-    return acc;
-  }, acc);
-}
-
+import toPath from "lodash.topath";
+import Ajv from "ajv";
 const ajv = new Ajv({
-  errorDataPath: 'property',
-  allErrors: true
+  errorDataPath: "property",
+  allErrors: true,
 });
-
 // add custom formats
 ajv.addFormat(
-  'data-url',
+  "data-url",
   /^data:([a-z]+\/[a-z0-9-+.]+)?;name=(.*);base64,(.*)$/
 );
 ajv.addFormat(
-  'color',
+  "color",
   /^(#?([0-9A-Fa-f]{3}){1,2}\b|aqua|black|blue|fuchsia|gray|green|lime|maroon|navy|olive|orange|purple|red|silver|teal|white|yellow|(rgb\(\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*,\s*\b([0-9]|[1-9][0-9]|1[0-9][0-9]|2[0-4][0-9]|25[0-5])\b\s*\))|(rgb\(\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*,\s*(\d?\d%|100%)+\s*\)))$/
 );
+
+import { isObject, mergeObjects } from "./utils";
 
 function toErrorSchema(errors) {
   // Transforms a ajv validation errors list:
@@ -69,7 +42,7 @@ function toErrorSchema(errors) {
 
     // If the property is at the root (.level1) then toPath creates
     // an empty array element at the first index. Remove it.
-    if (path.length > 0 && path[0] === '') {
+    if (path.length > 0 && path[0] === "") {
       path.splice(0, 1);
     }
 
@@ -91,20 +64,20 @@ function toErrorSchema(errors) {
   }, {});
 }
 
-export function toErrorList(errorSchema, fieldName = 'root') {
+export function toErrorList(errorSchema, fieldName = "root") {
   // XXX: We should transform fieldName as a full field path string.
   let errorList = [];
-  if ('__errors' in errorSchema) {
+  if ("__errors" in errorSchema) {
     errorList = errorList.concat(
       errorSchema.__errors.map(stack => {
         return {
-          stack: `${fieldName}: ${stack}`
+          stack: `${fieldName}: ${stack}`,
         };
       })
     );
   }
   return Object.keys(errorSchema).reduce((acc, key) => {
-    if (key !== '__errors') {
+    if (key !== "__errors") {
       acc = acc.concat(toErrorList(errorSchema[key], key));
     }
     return acc;
@@ -119,7 +92,7 @@ function createErrorHandler(formData) {
     __errors: [],
     addError(message) {
       this.__errors.push(message);
-    }
+    },
   };
   if (isObject(formData)) {
     return Object.keys(formData).reduce((acc, key) => {
@@ -136,9 +109,9 @@ function createErrorHandler(formData) {
 
 function unwrapErrorHandler(errorHandler) {
   return Object.keys(errorHandler).reduce((acc, key) => {
-    if (key === 'addError') {
+    if (key === "addError") {
       return acc;
-    } else if (key === '__errors') {
+    } else if (key === "__errors") {
       return { ...acc, [key]: errorHandler[key] };
     }
     return { ...acc, [key]: unwrapErrorHandler(errorHandler[key]) };
@@ -164,7 +137,7 @@ function transformAjvErrors(errors = []) {
       property,
       message,
       params, // specific to ajv
-      stack: `${property} ${message}`.trim()
+      stack: `${property} ${message}`.trim(),
     };
   });
 }
@@ -189,12 +162,12 @@ export default function validateFormData(
 
   let errors = transformAjvErrors(ajv.errors);
 
-  if (typeof transformErrors === 'function') {
+  if (typeof transformErrors === "function") {
     errors = transformErrors(errors);
   }
   const errorSchema = toErrorSchema(errors);
 
-  if (typeof customValidate !== 'function') {
+  if (typeof customValidate !== "function") {
     return { errors, errorSchema };
   }
 

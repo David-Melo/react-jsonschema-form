@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 
 import {
   isMultiSelect,
@@ -10,15 +10,15 @@ import {
   isFilesArray,
   deepEquals,
   getSchemaType
-} from "../../utils";
+} from '../../utils';
 
 const COMPONENT_TYPES = {
-  array: "ArrayField",
-  boolean: "BooleanField",
-  integer: "NumberField",
-  number: "NumberField",
-  object: "ObjectField",
-  string: "StringField"
+  array: 'ArrayField',
+  boolean: 'BooleanField',
+  integer: 'NumberField',
+  number: 'NumberField',
+  object: 'ObjectField',
+  string: 'StringField'
 };
 
 function getFieldComponent(
@@ -28,11 +28,11 @@ function getFieldComponent(
   fields,
   UnsupportedTemplate
 ) {
-  const field = uiSchema["ui:field"];
-  if (typeof field === "function") {
+  const field = uiSchema['ui:field'];
+  if (typeof field === 'function') {
     return field;
   }
-  if (typeof field === "string" && field in fields) {
+  if (typeof field === 'string' && field in fields) {
     return fields[field];
   }
 
@@ -40,14 +40,14 @@ function getFieldComponent(
   return componentName in fields
     ? fields[componentName]
     : () => {
-        return (
-          <UnsupportedTemplate
-            schema={schema}
-            idSchema={idSchema}
-            reason={`Unknown field type ${schema.type}`}
-          />
-        );
-      };
+      return (
+        <UnsupportedTemplate
+          schema={schema}
+          idSchema={idSchema}
+          reason={`Unknown field type ${schema.type}`}
+        />
+      );
+    };
 }
 
 function SchemaFieldRender(props) {
@@ -68,7 +68,7 @@ function SchemaFieldRender(props) {
     idSchema
   );
   const { DescriptionTemplate, UnsupportedTemplate } = templates;
-  const template = uiSchema["ui:FieldTemplate"] || "FieldTemplate";
+  const template = uiSchema['ui:FieldTemplate'] || 'FieldTemplate';
   const FieldTemplate = templates[template];
   const FieldComponent = getFieldComponent(
     schema,
@@ -77,9 +77,9 @@ function SchemaFieldRender(props) {
     fields,
     UnsupportedTemplate
   );
-  const disabled = Boolean(props.disabled || uiSchema["ui:disabled"]);
-  const readonly = Boolean(props.readonly || uiSchema["ui:readonly"]);
-  const autofocus = Boolean(props.autofocus || uiSchema["ui:autofocus"]);
+  const disabled = Boolean(props.disabled || uiSchema['ui:disabled']);
+  const readonly = Boolean(props.readonly || uiSchema['ui:readonly']);
+  const autofocus = Boolean(props.autofocus || uiSchema['ui:autofocus']);
 
   if (Object.keys(schema).length === 0) {
     // See #312: Ensure compatibility with old versions of React.
@@ -88,15 +88,15 @@ function SchemaFieldRender(props) {
 
   const uiOptions = getUiOptions(uiSchema);
   let { label: displayLabel = true } = uiOptions;
-  if (schema.type === "array") {
+  if (schema.type === 'array') {
     displayLabel =
       isMultiSelect(schema, definitions) ||
       isFilesArray(schema, uiSchema, definitions);
-  } else if (schema.type === "object") {
+  } else if (schema.type === 'object') {
     displayLabel = false;
-  } else if (schema.type === "boolean" && !uiSchema["ui:widget"]) {
+  } else if (schema.type === 'boolean' && !uiSchema['ui:widget']) {
     displayLabel = false;
-  } else if (uiSchema["ui:field"]) {
+  } else if (uiSchema['ui:field']) {
     displayLabel = false;
   }
 
@@ -121,28 +121,28 @@ function SchemaFieldRender(props) {
   const { type } = schema;
   const id = idSchema.$id;
   const label =
-    uiSchema["ui:title"] || props.schema.title || schema.title || name;
+    uiSchema['ui:title'] || props.schema.title || schema.title || name;
   const description =
-    uiSchema["ui:description"] ||
+    uiSchema['ui:description'] ||
     props.schema.description ||
     schema.description;
   const errors = __errors;
-  const help = uiSchema["ui:help"];
-  const hidden = uiSchema["ui:widget"] === "hidden";
+  const help = uiSchema['ui:help'];
+  const hidden = uiSchema['ui:widget'] === 'hidden';
   const classNames = [
-    "form-group",
-    "field",
+    'form-group',
+    'field',
     `field-${type}`,
-    errors && errors.length > 0 ? "field-error has-error has-danger" : "",
+    errors && errors.length > 0 ? 'field-error has-error has-danger' : '',
     uiSchema.classNames
   ]
-    .join(" ")
+    .join(' ')
     .trim();
 
   const fieldProps = {
     description: (
       <DescriptionTemplate
-        id={id + "__description"}
+        id={id + '__description'}
         description={description}
         formContext={formContext}
       />
@@ -191,7 +191,7 @@ SchemaField.defaultProps = {
   autofocus: false
 };
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   SchemaField.propTypes = {
     schema: PropTypes.object.isRequired,
     uiSchema: PropTypes.object,

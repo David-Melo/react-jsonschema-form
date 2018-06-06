@@ -2,4 +2,5 @@ node_modules
 lib
 build
 yarn.lock
+yarn-error.log
 lerna-debug.log

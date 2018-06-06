@@ -31,7 +31,7 @@ export function NormalTemplate(props) {
         className="array-item-list"
         key={`array-item-list-${props.idSchema.$id}`}
       >
-        {props.items && props.items.map(p => ArrayFieldItem(p))}
+        {props.items && props.items.map(ArrayFieldItem)}
       </div>
 
       {props.canAdd && (
