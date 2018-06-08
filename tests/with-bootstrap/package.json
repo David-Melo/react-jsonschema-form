@@ -1,0 +1,8 @@
+{
+  "name": "react-jsonschema-form-bootstrap-tests",
+  "private": true,
+  "dependencies": {
+    "react-jsonschema-form": "^2.0.0",
+    "react-jsonschema-form-bootstrap": "^1.0.0"
+  }
+}
