@@ -2,7 +2,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/MatejMazur/react-jsonschema-form.git"
+    "url": "git+https://github.com/mozilla-services/react-jsonschema-form.git"
   },
   "workspaces": [
     "packages/*",
@@ -13,9 +13,9 @@
     "package:umd": "lerna exec --scope react-jsonschema-form* --since --stream --parallel -- neutrino build --use ../../.neutrinorc.js",
     "start:packages": "cross-env NODE_ENV=development yarn package:lib --watch",
     "build:packages": "cross-env NODE_ENV=production yarn package:lib && yarn package:umd",
-    "start:examples": "lerna exec --scope example-* --since --stream --parallel -- neutrino start --use ../../.neutrinorc.js",
+    "start:bootstrap": "lerna exec --scope example-bootstrap --stream --parallel -- neutrino start --use ../../.neutrinorc.js",
     "build:examples": "lerna exec --scope example-* --since --stream --parallel -- neutrino build --use ../../.neutrinorc.js",
-    "start": "concurrently \"yarn start:packages\" \"yarn start:examples\"",
+    "start": "concurrently \"yarn start:packages\" \"yarn start:bootstrap\"",
     "build": "yarn build:packages && yarn build:examples",
     "test": "jest",
     "tdd": "jest --watch"
@@ -46,6 +46,7 @@
     "babel-runtime": "^6.26.0",
     "concurrently": "^3.5.1",
     "cross-env": "^5.1.6",
+    "dom-testing-library": "^2.5.0",
     "eslint": "^4.19.1",
     "eslint-plugin-jest": "^21.17.0",
     "eslint-plugin-react": "^7.9.1",
@@ -57,6 +58,7 @@
     "prettier-eslint-cli": "^4.7.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
+    "react-testing-library": "^3.1.3",
     "webpack-node-externals": "^1.7.2"
   }
 }

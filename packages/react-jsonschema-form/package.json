@@ -6,6 +6,11 @@
   "module": "lib/index.js",
   "variable": "Form",
   "license": "MIT",
+  "dependencies": {
+    "ajv": "^6.5.0",
+    "lodash.topath": "^4.5.2",
+    "setimmediate": "^1.0.5"
+  },
   "devDependencies": {
     "react": "^16.4.0",
     "react-dom": "^16.4.0"
