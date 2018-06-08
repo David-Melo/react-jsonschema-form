@@ -5,5 +5,9 @@
   "main": "build/index.js",
   "module": "lib/index.js",
   "variable": "Form",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  }
 }
