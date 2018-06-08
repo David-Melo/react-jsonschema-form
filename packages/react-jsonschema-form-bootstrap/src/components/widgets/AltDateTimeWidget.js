@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 function AltDateTimeWidget(props) {
   const { AltDateWidget } = props.registry.widgets;
@@ -12,8 +13,8 @@ if (process.env.NODE_ENV !== 'production') {
     id: PropTypes.string.isRequired,
     value: PropTypes.string,
     required: PropTypes.bool,
-    onChangep: PropTypes.func
+    onChange: PropTypes.func
   };
 }
 
-export default AltDateTimeWidget;
+export default hot(module)(AltDateTimeWidget);

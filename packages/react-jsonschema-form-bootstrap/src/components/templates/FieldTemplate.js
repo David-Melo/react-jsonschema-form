@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 export const REQUIRED_FIELD_SYMBOL = '*';
 
@@ -29,7 +30,7 @@ const Help = props => {
   return <div className="form-text">{help}</div>;
 };
 
-export const ErrorList = props => {
+const ErrorList = props => {
   const { errors = [] } = props;
   if (errors.length === 0) {
     return <div />;
@@ -107,4 +108,4 @@ FieldTemplate.defaultProps = {
   displayLabel: true
 };
 
-export default FieldTemplate;
+export default hot(module)(FieldTemplate);

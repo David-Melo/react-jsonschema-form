@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 import {
   getWidget,
@@ -527,4 +528,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default ArrayField;
+export default hot(module)(ArrayField);

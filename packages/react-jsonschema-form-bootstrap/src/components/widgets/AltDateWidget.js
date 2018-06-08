@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 import {
   shouldRender,
@@ -177,4 +178,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default AltDateWidget;
+export default hot(module)(AltDateWidget);

@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 
 const ErrorListTemplate = props => {
   const { errors } = props;
@@ -19,4 +20,4 @@ const ErrorListTemplate = props => {
   );
 };
 
-export default ErrorListTemplate;
+export default hot(module)(ErrorListTemplate);
