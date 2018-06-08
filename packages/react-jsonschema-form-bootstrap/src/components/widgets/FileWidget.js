@@ -2,7 +2,11 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 
-import { dataURItoBlob, shouldRender, setState } from 'react-jsonschema-form/lib/utils';
+import {
+  dataURItoBlob,
+  shouldRender,
+  setState
+} from 'react-jsonschema-form/lib/utils';
 
 function addNameToDataURL(dataURL, name) {
   return dataURL.replace(';base64', `;name=${name};base64`);

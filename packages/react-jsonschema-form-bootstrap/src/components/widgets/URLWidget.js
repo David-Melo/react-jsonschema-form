@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 
 function URLWidget(props) {
@@ -7,9 +7,9 @@ function URLWidget(props) {
   return <BaseInput type="url" {...props} />;
 }
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   URLWidget.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.string
   };
 }
 

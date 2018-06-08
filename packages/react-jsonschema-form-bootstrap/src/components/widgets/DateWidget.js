@@ -1,13 +1,13 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 
 function DateWidget(props) {
   const {
     onChange,
     registry: {
-      widgets: { BaseInput },
-    },
+      widgets: { BaseInput }
+    }
   } = props;
   return (
     <BaseInput
@@ -18,9 +18,9 @@ function DateWidget(props) {
   );
 }
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   DateWidget.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.string
   };
 }
 

@@ -1,5 +1,5 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React from 'react';
+import PropTypes from 'prop-types';
 import { hot } from 'react-hot-loader';
 
 function PasswordWidget(props) {
@@ -7,9 +7,9 @@ function PasswordWidget(props) {
   return <BaseInput type="password" {...props} />;
 }
 
-if (process.env.NODE_ENV !== "production") {
+if (process.env.NODE_ENV !== 'production') {
   PasswordWidget.propTypes = {
-    value: PropTypes.string,
+    value: PropTypes.string
   };
 }
 
