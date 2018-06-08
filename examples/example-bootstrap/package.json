@@ -1,0 +1,8 @@
+{
+  "private": true,
+  "name": "example-bootstrap",
+  "version": "1.0.0",
+  "description": "React JSON Schema Form - Bootstrap playground",
+  "main": "build/index.js",
+  "license": "MIT"
+}

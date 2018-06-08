@@ -1,6 +1,8 @@
 node_modules
-lib
 build
+lib
+
+package-lock.json
 yarn.lock
-yarn-error.log
+
 lerna-debug.log

@@ -1,15 +1,62 @@
 {
-  "name": "react-jsonschema-form",
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mozilla-services/react-jsonschema-form.git"
+    "url": "https://github.com/MatejMazur/react-jsonschema-form.git"
   },
+  "workspaces": [
+    "packages/*",
+    "examples/*"
+  ],
   "scripts": {
-    "start": "lerna run start --parallel",
-    "build": "lerna run build --parallel"
+    "package:lib": "lerna exec --scope react-jsonschema-form* --since --stream --parallel -- babel src --out-dir lib",
+    "package:umd": "lerna exec --scope react-jsonschema-form* --since --stream --parallel -- neutrino build --use ../../.neutrinorc.js",
+    "start:packages": "cross-env NODE_ENV=development yarn package:lib --watch",
+    "build:packages": "cross-env NODE_ENV=production yarn package:lib && yarn package:umd",
+    "start:examples": "lerna exec --scope example-* --since --stream --parallel -- neutrino start --use ../../.neutrinorc.js",
+    "build:examples": "lerna exec --scope example-* --since --stream --parallel -- neutrino build --use ../../.neutrinorc.js",
+    "start": "concurrently \"yarn start:packages\" \"yarn start:examples\"",
+    "build": "yarn build:packages && yarn build:examples",
+    "test": "jest",
+    "tdd": "jest --watch"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "{examples,packages}/**/{src,tests}/*.js": [
+      "prettier-eslint --write",
+      "git add ."
+    ]
+  },
+  "engines": {
+    "node": ">=6",
+    "yarn": ">=1"
   },
   "devDependencies": {
-    "lerna": "^2.11.0"
+    "@neutrinojs/library": "^8.2.3",
+    "@neutrinojs/react": "^8.2.3",
+    "@types/jest": "^23.0.0",
+    "@types/react": "^16.3.17",
+    "babel-cli": "^6.26.0",
+    "babel-eslint": "^8.2.3",
+    "babel-preset-react-app": "^3.1.1",
+    "babel-runtime": "^6.26.0",
+    "concurrently": "^3.5.1",
+    "cross-env": "^5.1.6",
+    "eslint": "^4.19.1",
+    "eslint-plugin-jest": "^21.17.0",
+    "eslint-plugin-react": "^7.9.1",
+    "husky": "^1.0.0-rc.8",
+    "jest": "^23.1.0",
+    "lerna": "^2.11.0",
+    "lint-staged": "^7.1.3",
+    "neutrino": "^8.2.3",
+    "prettier-eslint-cli": "^4.7.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0",
+    "webpack-node-externals": "^1.7.2"
   }
 }
