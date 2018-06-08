@@ -21,13 +21,9 @@ export const Small = ({ children }) => (
   <small className="text-muted font-weight-light d-block">{children}</small>
 );
 
-export const Main = ({ children }) => (
-  <div className="main">{children}</div>
-);
+export const Main = ({ children }) => <div className="main">{children}</div>;
 
-export const Menu = ({ children }) => (
-  <div>{children}</div>
-);
+export const Menu = ({ children }) => <div>{children}</div>;
 
 export const Nav = ({ children, ...props }) => {
   return (
