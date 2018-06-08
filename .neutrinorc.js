@@ -1,27 +1,25 @@
-const path = require("path");
-const nodeExternals = require("webpack-node-externals");
+const path = require('path');
+const nodeExternals = require('webpack-node-externals');
 
 module.exports = neutrino => {
+  const env = process.env.NODE_ENV;
   const pkg = neutrino.options.packageJson;
 
   /**
    * Only playgrounds are with pkg.private: true
    */
   if (pkg.private) {
-    neutrino.use(["@neutrinojs/react", { html: { title: pkg.description } }]);
+    neutrino.use(['@neutrinojs/react', { html: { title: pkg.description } }]);
+    
+    if (env === 'development') {
+      neutrino.config.devServer.port(pkg.devServer.port);
+      console.log(`Running on http://localhost:${pkg.devServer.port}`);
+    }
   } else {
     /**
-     * Components are tested together in @react-schema-form/playground
-     * We don't use multiple entries (https://webpack.js.org/guides/author-libraries/#expose-the-library)
-     * We don't need dev server for components
-     * So we can use @neutrinojs/library instead of @neutrinojs/react-components
-     * - no need for multiple outputs (tree shaking or direct access to the src/)
-     * - enables reloading with components changes
-     * - enables HMR
-     *
-     * !REQUIRED!: key `variable` in package.json
+     * !REQUIRED!: key `variable` in package's `package.json`
      */
-    neutrino.use(["@neutrinojs/library", { name: pkg.variable }]);
+    neutrino.use(['@neutrinojs/library', { name: pkg.variable }]);
 
     /**
      * It solves monorepo issue with parent node_modules
@@ -33,7 +31,7 @@ module.exports = neutrino => {
      */
     neutrino.config.externals([
       nodeExternals({
-        modulesDir: path.resolve(__dirname, "node_modules")
+        modulesDir: path.resolve(__dirname, 'node_modules')
       })
     ]);
   }
