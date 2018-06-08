@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 import {
   isMultiSelect,
@@ -212,4 +213,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default SchemaField;
+export default hot(module)(SchemaField);

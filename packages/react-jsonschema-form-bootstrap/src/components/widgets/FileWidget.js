@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 import { dataURItoBlob, shouldRender, setState } from 'react-jsonschema-form/lib/utils';
 
@@ -127,4 +128,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default FileWidget;
+export default hot(module)(FileWidget);

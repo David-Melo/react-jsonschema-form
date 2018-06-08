@@ -1,4 +1,5 @@
 import React from 'react';
+import { hot } from 'react-hot-loader';
 
 const SubmitTemplate = () => (
   <p>
@@ -8,4 +9,4 @@ const SubmitTemplate = () => (
   </p>
 );
 
-export default SubmitTemplate;
+export default hot(module)(SubmitTemplate);

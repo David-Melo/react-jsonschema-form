@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 import {
   getDefaultFormState,
@@ -10,7 +11,7 @@ import {
 } from '../utils';
 import validateFormData, { toErrorList } from '../validate';
 
-export default class Form extends Component {
+class FormContainer extends Component {
   static defaultProps = {
     uiSchema: {},
     noValidate: false,
@@ -222,7 +223,7 @@ export default class Form extends Component {
 }
 
 if (process.env.NODE_ENV !== 'production') {
-  Form.propTypes = {
+  FormContainer.propTypes = {
     schema: PropTypes.object.isRequired,
     uiSchema: PropTypes.object,
     formData: PropTypes.any,
@@ -255,3 +256,5 @@ if (process.env.NODE_ENV !== 'production') {
     formContext: PropTypes.object
   };
 }
+
+export default hot(module)(FormContainer);

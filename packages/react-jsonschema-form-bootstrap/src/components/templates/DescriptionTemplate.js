@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 const DescriptionTemplate = props => {
   const { id, description } = props;
@@ -29,4 +30,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default DescriptionTemplate;
+export default hot(module)(DescriptionTemplate);

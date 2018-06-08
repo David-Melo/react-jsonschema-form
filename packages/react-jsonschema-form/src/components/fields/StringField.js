@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { hot } from 'react-hot-loader';
 
 import { getWidget, getUiOptions, isSelect, optionsList } from '../../utils';
 
@@ -87,4 +88,4 @@ StringField.defaultProps = {
   autofocus: false
 };
 
-export default StringField;
+export default hot(module)(StringField);
