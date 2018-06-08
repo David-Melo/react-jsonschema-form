@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 function PasswordWidget(props) {
   const { BaseInput } = props.registry.widgets;
@@ -13,4 +12,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(PasswordWidget);
+export default PasswordWidget;

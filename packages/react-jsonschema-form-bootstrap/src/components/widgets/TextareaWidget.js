@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 function TextareaWidget(props) {
   const {
@@ -62,4 +61,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(TextareaWidget);
+export default TextareaWidget;

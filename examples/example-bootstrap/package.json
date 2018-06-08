@@ -12,9 +12,7 @@
     "react-jsonschema-form-bootstrap": "^1.0.0",
     "react-router-dom": "^4.3.1"
   },
-  "devDependencies": {
-    "react-hot-loader": "^4.3.0"
-  },
+  "devDependencies": {},
   "devServer": {
     "port": "5000"
   }

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 import { REQUIRED_FIELD_SYMBOL } from './FieldTemplate';
 
@@ -18,4 +17,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(TitleTemplate);
+export default TitleTemplate;

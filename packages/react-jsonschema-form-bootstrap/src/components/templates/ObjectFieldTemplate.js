@@ -1,5 +1,4 @@
 import React from 'react';
-import { hot } from 'react-hot-loader';
 
 const ObjectFieldTemplate = props => {
   const { TitleTemplate, DescriptionTemplate } = props;
@@ -25,4 +24,4 @@ const ObjectFieldTemplate = props => {
   );
 };
 
-export default hot(module)(ObjectFieldTemplate);
+export default ObjectFieldTemplate;

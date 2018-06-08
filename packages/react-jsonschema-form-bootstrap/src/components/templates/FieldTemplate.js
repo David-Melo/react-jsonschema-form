@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 export const REQUIRED_FIELD_SYMBOL = '*';
 
@@ -108,4 +107,4 @@ FieldTemplate.defaultProps = {
   displayLabel: true
 };
 
-export default hot(module)(FieldTemplate);
+export default FieldTemplate;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 import { getWidget, getUiOptions, optionsList } from '../../utils';
 
@@ -80,4 +79,4 @@ BooleanField.defaultProps = {
   autofocus: false
 };
 
-export default hot(module)(BooleanField);
+export default BooleanField;

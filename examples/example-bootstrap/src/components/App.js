@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
-import { hot } from 'react-hot-loader';
 
 import Form from 'react-jsonschema-form';
 import theme from 'react-jsonschema-form-bootstrap';
@@ -68,4 +67,4 @@ class App extends Component {
   }
 }
 
-export default hot(module)(App);
+export default App;

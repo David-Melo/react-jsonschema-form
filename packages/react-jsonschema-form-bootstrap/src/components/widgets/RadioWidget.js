@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 function RadioWidget(props) {
   const { options, value, disabled, readonly, required, autofocus } = props;
@@ -64,4 +63,4 @@ if (process.env.NODE_ENV !== 'production') {
     onChange: PropTypes.func
   };
 }
-export default hot(module)(RadioWidget);
+export default RadioWidget;

@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 import DescriptionTemplate from '../templates/DescriptionTemplate';
 
@@ -58,4 +57,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(CheckboxWidget);
+export default CheckboxWidget;

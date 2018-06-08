@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 function selectValue(value, selected, all) {
   const at = all.indexOf(value);
@@ -84,4 +83,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(CheckboxesWidget);
+export default CheckboxesWidget;

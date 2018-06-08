@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 function UnsupportedTemplate({ schema, idSchema, reason }) {
   return (
@@ -27,4 +26,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(UnsupportedTemplate);
+export default UnsupportedTemplate;

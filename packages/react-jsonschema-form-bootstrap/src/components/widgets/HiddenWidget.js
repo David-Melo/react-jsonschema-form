@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 function HiddenWidget({ id, value }) {
   return (
@@ -23,4 +22,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(HiddenWidget);
+export default HiddenWidget;

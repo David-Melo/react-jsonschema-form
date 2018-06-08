@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 import {
   getDefaultFormState,
@@ -257,4 +256,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(FormContainer);
+export default FormContainer;

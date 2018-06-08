@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { hot } from 'react-hot-loader';
 
 import FormContainer from './FormContainer';
 import _fields from './fields';
@@ -28,4 +27,4 @@ if (process.env.NODE_ENV !== 'production') {
   };
 }
 
-export default hot(module)(Form);
+export default Form;
