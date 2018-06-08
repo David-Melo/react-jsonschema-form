@@ -9,6 +9,7 @@
     "examples/*"
   ],
   "scripts": {
+    "format": "prettier-eslint \"{examples,packages}/**/{src,tests}/**/*.js\" --write",
     "package:lib": "lerna exec --scope react-jsonschema-form* --since --stream --parallel -- babel src --out-dir lib",
     "package:umd": "lerna exec --scope react-jsonschema-form* --since --stream --parallel -- neutrino build --use ../../.neutrinorc.js",
     "start:packages": "cross-env NODE_ENV=development yarn package:lib --watch",
