@@ -1,7 +1,4 @@
-import {
-  NormalTemplate as ArrayFieldNormalTemplate,
-  FixedTemplate as ArrayFieldFixedTemplate
-} from './ArrayFieldTemplate';
+import ArrayFieldTemplate from './ArrayFieldTemplate';
 import FieldTemplate from './FieldTemplate';
 import ObjectFieldTemplate from './ObjectFieldTemplate';
 import ErrorListTemplate from './ErrorListTemplate';
@@ -13,8 +10,7 @@ import DescriptionTemplate from './DescriptionTemplate';
 export default {
   FieldTemplate,
   ObjectFieldTemplate,
-  ArrayFieldNormalTemplate,
-  ArrayFieldFixedTemplate,
+  ArrayFieldTemplate,
   ErrorListTemplate,
   SubmitTemplate,
   UnsupportedTemplate,

@@ -203,8 +203,7 @@ class ArrayField extends Component {
     const title = schema.title === undefined ? name : schema.title;
     const { definitions, templates, formContext } = registry;
     const { TitleTemplate, DescriptionTemplate } = templates;
-    const template =
-      uiSchema['ui:ArrayFieldTemplate'] || 'ArrayFieldNormalTemplate';
+    const template = uiSchema['ui:ArrayFieldTemplate'] || 'ArrayFieldTemplate';
     const ArrayFieldTemplate = templates[template];
     const itemsSchema = retrieveSchema(schema.items, definitions);
     const arrayProps = {
@@ -356,8 +355,7 @@ class ArrayField extends Component {
     let items = this.props.formData;
     const { definitions, templates, formContext } = registry;
     const { TitleTemplate } = templates;
-    const template =
-      uiSchema['ui:ArrayFieldTemplate'] || 'ArrayFieldFixedTemplate';
+    const template = uiSchema['ui:ArrayFieldTemplate'] || 'ArrayFieldTemplate';
     const ArrayFieldTemplate = templates[template];
     const itemSchemas = schema.items.map((item, index) =>
       retrieveSchema(item, definitions, formData[index])

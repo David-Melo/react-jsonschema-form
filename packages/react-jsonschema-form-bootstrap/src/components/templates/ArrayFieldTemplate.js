@@ -5,7 +5,7 @@ import ArrowDown from '../icons/ArrowDown';
 import Cross from '../icons/Cross';
 import Plus from '../icons/Plus';
 
-export function NormalTemplate(props) {
+export default function ArrayFieldTemplate(props) {
   return (
     <fieldset className={props.className}>
       <ArrayFieldTitle
@@ -25,43 +25,6 @@ export function NormalTemplate(props) {
           }
           DescriptionTemplate={props.DescriptionTemplate}
         />
-      )}
-
-      <div
-        className="array-item-list"
-        key={`array-item-list-${props.idSchema.$id}`}
-      >
-        {props.items && props.items.map(ArrayFieldItem)}
-      </div>
-
-      {props.canAdd && (
-        <AddButton
-          onClick={props.onAddClick}
-          disabled={props.disabled || props.readonly}
-        />
-      )}
-    </fieldset>
-  );
-}
-
-export function FixedTemplate(props) {
-  return (
-    <fieldset className={props.className}>
-      <ArrayFieldTitle
-        key={`array-field-title-${props.idSchema.$id}`}
-        idSchema={props.idSchema}
-        title={props.uiSchema['ui:title'] || props.title}
-        required={props.required}
-        TitleTemplate={props.TitleTemplate}
-      />
-
-      {(props.uiSchema['ui:description'] || props.schema.description) && (
-        <div
-          className="field-description"
-          key={`field-description-${props.idSchema.$id}`}
-        >
-          {props.uiSchema['ui:description'] || props.schema.description}
-        </div>
       )}
 
       <div

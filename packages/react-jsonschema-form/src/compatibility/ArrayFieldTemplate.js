@@ -40,7 +40,7 @@ export default pack(({ renderForm }) => {
           const { node } = renderForm({
             schema: { type: 'array', items: { type: 'string' } },
             formData,
-            templates: { ArrayFieldNormalTemplate: ArrayFieldTemplate }
+            templates: { ArrayFieldTemplate: ArrayFieldTemplate }
           });
 
           expect(node.querySelectorAll('.field-array div').length).toBe(3);
@@ -63,7 +63,7 @@ export default pack(({ renderForm }) => {
 
         beforeEach(() => {
           node = renderForm({
-            templates: { ArrayFieldNormalTemplate: ArrayFieldTemplate },
+            templates: { ArrayFieldTemplate: ArrayFieldTemplate },
             formData,
             schema,
             uiSchema
@@ -120,7 +120,7 @@ export default pack(({ renderForm }) => {
 
         beforeEach(() => {
           node = renderForm({
-            templates: { ArrayFieldFixedTemplate: ArrayFieldTemplate },
+            templates: { ArrayFieldTemplate: ArrayFieldTemplate },
             formData,
             schema,
             uiSchema

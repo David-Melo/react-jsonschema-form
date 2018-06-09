@@ -95,7 +95,7 @@ export default pack(({ renderForm }) => {
         };
         const { queryAllByTestId, queryByText } = renderForm({
           schema,
-          templates: { ArrayFieldNormalTemplate: CustomgetStateonent },
+          templates: { ArrayFieldTemplate: CustomgetStateonent },
           formData: [1],
           liveValidate: true
         });
@@ -911,7 +911,7 @@ export default pack(({ renderForm }) => {
         };
         const { queryAllByTestId, queryByText } = renderForm({
           schema,
-          templates: { ArrayFieldNormalTemplate: CustomTemplate },
+          templates: { ArrayFieldTemplate: CustomTemplate },
           formData: [[]],
           liveValidate: true
         });
