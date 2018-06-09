@@ -650,7 +650,7 @@ export default pack(({ renderForm }) => {
           expect(matches.length).toBe(1);
           expect(
             queryByText(
-              'should NOT have duplicate items (items ## 0 and 1 are identical)'
+              /should NOT have duplicate items \(items ## \d and \d are identical\)/
             )
           ).toBeInTheDOM();
         });

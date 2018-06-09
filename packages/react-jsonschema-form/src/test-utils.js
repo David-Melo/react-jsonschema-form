@@ -12,21 +12,29 @@ export function initRenderForm(Form = DefaultForm, baseProps = {}) {
 
   return (props, existingContainer) => {
     let output;
+    const idPrefix = props.idPrefix || 'root';
     const onChange = initSpyOnChange(props.onChange || baseProps.onChange);
     const tools = render(
       <Form {...baseProps} {...props} onChange={onChange} />,
       existingContainer
     );
 
-    output = tools;
+    output = { ...tools };
     output.getState = getState;
-    output.rerender = rerender;
+    output.rerender = newProps =>
+      tools.rerender(
+        <Form {...baseProps} {...props} {...newProps} onChange={onChange} />
+      );
     output.node = tools.container.firstChild;
+    output.queryField = queryField;
 
     return output;
 
-    function rerender(newProps) {
-      return tools.rerender(<Form {...baseProps} {...newProps} />);
+    function queryField(fieldId) {
+      const id = fieldId
+        ? idPrefix + '_' + fieldId.replace(/\./g, '_')
+        : idPrefix;
+      return tools.queryByTestId(id);
     }
   };
 
