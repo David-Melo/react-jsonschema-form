@@ -1,5 +1,6 @@
 {
   "name": "react-jsonschema-form",
+  "version": "0.1.0",
   "private": true,
   "repository": {
     "type": "git",
